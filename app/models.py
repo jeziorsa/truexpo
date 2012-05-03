@@ -11,6 +11,8 @@ class Project(models.Model):
 class Image(models.Model):
     project = models.ForeignKey(Project)
     image_title = models.CharField(max_length=200)
-    #image = models.ImageField(project)
+    image = models.ImageField(upload_to='projects')
+    def __unicode__(self):
+        return self.image_title
 
 
