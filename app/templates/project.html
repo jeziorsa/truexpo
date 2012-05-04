@@ -1,7 +1,7 @@
 {% if images_list %}
     <ul>
     {% for images in images_list %}
-    <li><img href="/project/{{ image.filename }}/">{{images.image_title}}</a></li>
+    <li><img href="/media/{{ images.image.name }}/">{{images.image_title}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
