@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 # Create your models here
 
@@ -15,4 +16,6 @@ class Image(models.Model):
     def __unicode__(self):
         return self.image_title
 
-
+class ImageForm(ModelForm):
+    class Meta:
+	model = Image

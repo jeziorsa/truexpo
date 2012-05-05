@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from app.models import Project, Image
+from app.models import Project, Image, ImageForm
 from django.template.context import RequestContext
 
 def index(request):
@@ -11,3 +11,18 @@ def detail(request, project_id):
     images_list = Image.objects.all()
     return render_to_response('project.html', {'images_list': images_list})
 
+def upload(request, project_id):
+    if request.method == 'POST': # If the form has been submitted...
+        form = ImageForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            # Process the data in form.cleaned_data
+            # ...
+            return HttpResponseRedirect('/') # Redirect after POST
+    else:
+        form = ImageForm() # An unbound form
+
+    return render_to_response('upload.html', {
+        'form': form,
+	'project_id': project_id,
+    })
+		

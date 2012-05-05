@@ -1,11 +1,11 @@
 {% if images_list %}
     <ul>
     {% for images in images_list %}
-    <li><img href="/media/{{ images.image.name }}/">{{images.image_title}}</a></li>
+    <li><img src="{{ images.image.url }}">{{images.image_title}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No projects</p>
+    <p>No Images</p>
 {% endif %}
 
 
