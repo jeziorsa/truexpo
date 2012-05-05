@@ -9,7 +9,10 @@ def index(request):
 
 def detail(request, project_id):
     images_list = Image.objects.all()
-    return render_to_response('project.html', {'images_list': images_list})
+    return render_to_response('project.html', {
+	    'images_list': images_list,
+	    'project_id': project_id,
+	    })
 
 def upload(request, project_id):
     if request.method == 'POST': # If the form has been submitted...
