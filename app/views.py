@@ -24,8 +24,5 @@ def upload(request, project_id):
     else:
         form = ImageForm() # An unbound form
 
-    return render_to_response('upload.html', {
-        'form': form,
-	'project_id': project_id,
-    })
+    return render_to_response('upload.html', {'form': form, 'project_id': project_id,}, context_instance=RequestContext(request))
 		
