@@ -19,3 +19,4 @@ class Image(models.Model):
 class ImageForm(ModelForm):
     class Meta:
 	model = Image
+	exclude = ('project',)
