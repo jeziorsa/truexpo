@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'app',
+    'easy_thumbnails',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -158,3 +159,10 @@ LOGGING = {
         },
     }
 }
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'thumbs': {'size': (100, 100), 'crop': True},
+    },
+}
+

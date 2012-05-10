@@ -1,3 +1,5 @@
+{% load thumbnail %}
+
 <h2>{{ project_name }}</h2>
 
 <a href="/p/{{ project_id }}/upload/">Upload</a>
@@ -5,11 +7,11 @@
 {% if images_list %}
     <ul>
     {% for images in images_list %}
-    <li><img src="{{ images.image.url }}">{{images.image_title}}</a></li>
+    <li><a href="{{ images.image.url }}">
+        <img src='{{ images.image.thumbs.url }}' alt=''>{{images.image_title}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No Images</p>
 {% endif %}
-
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
+from easy_thumbnails.fields import ThumbnailerImageField
 
 # Create your models here
 
@@ -12,7 +13,7 @@ class Project(models.Model):
 class Image(models.Model):
     project = models.ForeignKey(Project)
     image_title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='projects')
+    image = ThumbnailerImageField(upload_to='projects', blank=True)
     def __unicode__(self):
         return self.image_title
 
