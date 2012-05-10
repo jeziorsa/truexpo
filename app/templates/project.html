@@ -1,3 +1,7 @@
+<h2>{{ project_name }}</h2>
+
+<a href="/p/{{ project_id }}/upload/">Upload</a>
+<br><br>
 {% if images_list %}
     <ul>
     {% for images in images_list %}
@@ -7,6 +11,5 @@
 {% else %}
     <p>No Images</p>
 {% endif %}
-<a href="/p/{{ project_id }}/upload/">Upload</a>
 
 

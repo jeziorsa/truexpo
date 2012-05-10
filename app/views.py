@@ -1,7 +1,10 @@
 from django.http import HttpResponseRedirect
 from app.models import Project, Image, ImageForm
 from django.template.context import RequestContext
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
+
+def home(request):
+    return redirect('/p/1/')
 
 def index(request):
     latest_project_list = Project.objects.all().order_by('-pub_date')[:5]
@@ -9,9 +12,11 @@ def index(request):
 
 def detail(request, project_id):
     images_list = Image.objects.all()
+    project_name = Project.objects.get(pk=project_id).project_name
     return render_to_response('project.html', {
 	    'images_list': images_list,
 	    'project_id': project_id,
+        'project_name': project_name,
 	    })
 
 def upload(request, project_id):

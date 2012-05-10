@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^$', 'app.views.home', name='home'),        
     url(r'^p/$', 'app.views.index'),
     url(r'^p/(?P<project_id>\d+)/$', 'app.views.detail'),
     url(r'^p/(?P<project_id>\d+)/upload/$', 'app.views.upload'),
