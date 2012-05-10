@@ -15,15 +15,15 @@ def detail(request, project_id):
 	    })
 
 def upload(request, project_id):
-    image = get_object_or_404(Image, pk=project_id)
-    if request.method == 'POST': # If the form has been submitted...
-        form = ImageForm(request.POST, request.FILES, instance=image) # A form bound to the POST data
-        #form.project = project_id
-	if form.is_valid(): # All validation rules pass
+    project = get_object_or_404(Project, pk=project_id)
+    img_new = Image(project=project)
+    if request.method == 'POST': 
+        form = ImageForm(request.POST, request.FILES, instance=img_new)
+        if form.is_valid(): 
             form.save()
-	    return HttpResponseRedirect('/p/%s/'%project_id) # Redirect after POST
+	    return HttpResponseRedirect('/p/%s/'%project_id)
     
-    form = ImageForm() # An unbound form
+    form = ImageForm()
 
     return render_to_response('upload.html', {'form': form, 'project_id': project_id,}, context_instance=RequestContext(request))
 		
