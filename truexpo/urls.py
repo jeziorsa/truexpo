@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'app.views.home', name='home'),        
     url(r'^p/$', 'app.views.index'),
+    url(r'^p/(?P<project_id>\d+)/(?P<image_id>\d+)/$', 'app.views.darkroom'),
     url(r'^p/(?P<project_id>\d+)/$', 'app.views.detail'),
     url(r'^p/(?P<project_id>\d+)/upload/$', 'app.views.upload'),
     url(r'^admin/', include(admin.site.urls)),

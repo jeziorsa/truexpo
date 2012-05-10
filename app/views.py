@@ -19,6 +19,12 @@ def detail(request, project_id):
         'project_name': project_name,
 	    })
 
+def darkroom(request, project_id, image_id):
+    image = Image.objects.get(pk=image_id)
+    return render_to_response('darkroom.html', {
+	    'image': image,
+	    })
+
 def upload(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     img_new = Image(project=project)

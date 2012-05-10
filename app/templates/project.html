@@ -7,7 +7,7 @@
 {% if images_list %}
     <ul>
     {% for images in images_list %}
-    <li><a href="{{ images.image.url }}">
+    <li><a href="/p/{{ project_id }}/{{ images.id }}/">
         <img src='{{ images.image.thumbs.url }}' alt=''>{{images.image_title}}</a></li>
     {% endfor %}
     </ul>
